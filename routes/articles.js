@@ -4,9 +4,11 @@ const articleController = require('../controller/article.js')
 
 router.get('/', articleController.findAll)
 
+router.get('/my-article', articleController.myArticle)
+
 router.post('/post', articleController.create)
 
-router.get('/by-author', articleController.getbyAuthor)
+router.get('/search', articleController.search)
 
 router.get('/by-category', articleController.getbyCategory)
 

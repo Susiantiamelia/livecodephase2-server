@@ -76,14 +76,14 @@ class Article{
         })
     }
 
-    static getbyAuthor(req,res){
+    static search(req,res){
 
         ArticleMod.find({})
         .populate('author')
         .then(result => {
             let article = []
             for(let i = 0; i< result.length; i++){
-                if(result[i].author.name === search){
+                if(result[i].author.name === search || category === search){
                     article.push(result[i])
                 }
             }
@@ -117,6 +117,8 @@ class Article{
             res.status(500).json(err.message)
         })
     }
+
+
 }
 
 module.exports = Article
